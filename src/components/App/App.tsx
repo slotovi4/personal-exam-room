@@ -1,18 +1,12 @@
-import * as React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import * as React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Redux
-import { Provider } from "react-redux";
-import store from "../../store";
+import { Provider } from 'react-redux';
+import store from '../../store';
 
 // components
-import First from "../First/First";
-
-const MainRoutes = () => (
-  <React.Fragment>
-    <First />
-  </React.Fragment>
-);
+import { LoginContainer } from '../../containers/LoginContainer';
 
 class App extends React.Component {
   public render() {
@@ -20,7 +14,7 @@ class App extends React.Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact={true} path="/" component={MainRoutes} />
+            <Route exact={true} path="/" component={LoginContainer} />
           </Switch>
         </Router>
       </Provider>
