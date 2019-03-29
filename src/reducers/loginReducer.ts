@@ -1,16 +1,18 @@
-import { TEST } from "../actions/types";
+import { loginTypes } from '../actions/types';
 
-export interface IAction {
-  type: "TEST";
-}
+const { LOGIN } = loginTypes;
 
 const initialState = {
   test: true
 };
 
+export interface IAction {
+  type: 'LOGIN';
+}
+
 export default (state = initialState, action: IAction) => {
   switch (action.type) {
-    case TEST:
+    case LOGIN:
       return state;
     default:
       return state;
