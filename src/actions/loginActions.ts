@@ -1,17 +1,16 @@
-import { loginTypes, API_URL } from './types';
+import { loginTypes } from './types';
 import { Dispatch } from 'react';
-import axios from 'axios';
+import { userService } from '../services/userService';
 
-const { LOGIN } = loginTypes;
+const { LOGIN_SUCCESS, LOGIN_FAILURE } = loginTypes;
 
 export const loginUser = (phone: string, password: string) => (
   dispatch: Dispatch<object>
 ) => {
-  axios
-    .post(`${API_URL}/v1/account/login`, { phone, password })
+  userService
+    .login(phone, password)
     .then(
-      response => console.log(response),
-      error => console.log('An error occurred.', error)
-    )
-    .then(user => dispatch({ type: LOGIN, user }));
+      user => dispatch({ type: LOGIN_SUCCESS, user }),
+      (error: string) => dispatch({ type: LOGIN_FAILURE, error })
+    );
 };

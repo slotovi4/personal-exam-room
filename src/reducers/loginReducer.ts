@@ -1,19 +1,40 @@
 import { loginTypes } from '../actions/types';
+import { IUser } from '../actions/interface';
 
-const { LOGIN } = loginTypes;
-
-const initialState = {
-  test: true
-};
-
-export interface IAction {
-  type: 'LOGIN';
+interface IAction {
+  type: 'LOGIN_SUCCESS' | 'LOGIN_FAILURE';
+  user?: IUser;
 }
+
+interface IState {
+  loggingIn: boolean;
+  user: IUser | {};
+}
+
+const { LOGIN_SUCCESS, LOGIN_FAILURE } = loginTypes;
+
+const user = localStorage['user-store']
+  ? JSON.parse(localStorage['user-store'])
+  : undefined;
+
+const initialState: IState = user
+  ? { loggingIn: true, user }
+  : { loggingIn: false, user: {} };
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {
-    case LOGIN:
-      return state;
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        loggingIn: true,
+        user: action.user
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        loggingIn: false,
+        user: {}
+      };
     default:
       return state;
   }
