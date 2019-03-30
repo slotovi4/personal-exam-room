@@ -9,9 +9,10 @@ const login = (phone: string, password: string) =>
     .post(`${API_URL}/v1/account/login`, { phone, password })
     .then(handleResponse)
     .then((user: IUser) => {
-      localStorage.setItem(USER_TOKEN, user.token);
+      const token = user.token;
+      localStorage.setItem(USER_TOKEN, token);
 
-      return user;
+      return token;
     });
 
 const handleResponse = (response: AxiosResponse) => {
