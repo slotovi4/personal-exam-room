@@ -10,7 +10,7 @@ export const loginUser = (phone: string, password: string) => (
   userService
     .login(phone, password)
     .then(
-      user => dispatch({ type: LOGIN_SUCCESS, user }),
+      user => dispatch({ type: LOGIN_SUCCESS, token: user.token }),
       (error: string) => dispatch({ type: LOGIN_FAILURE, error })
     );
 };

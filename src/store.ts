@@ -1,9 +1,16 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
-import { USER } from './actions/types';
+import { USER_TOKEN } from './actions/types';
 
-const initialState = localStorage[USER] ? JSON.parse(localStorage[USER]) : {};
+const stateToken = localStorage[USER_TOKEN];
+
+const initialState = {
+  login: {
+    loggingIn: stateToken ? true : false,
+    token: stateToken || ''
+  }
+};
 
 const middleware = [thunk];
 
@@ -19,10 +26,11 @@ const store = createStore(
 
 store.subscribe(() => {
   const state = store.getState();
-  const stateUser = { ...state.login.user };
-  const user = Object.keys(stateUser).length ? JSON.stringify(stateUser) : '';
+  const token = state.login.token;
 
-  user ? localStorage.setItem(USER, user) : localStorage.removeItem(USER);
+  token
+    ? localStorage.setItem(USER_TOKEN, token)
+    : localStorage.removeItem(USER_TOKEN);
 });
 
 // store.subscribe(

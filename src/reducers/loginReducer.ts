@@ -1,23 +1,22 @@
-import { loginTypes, USER } from '../actions/types';
-import { IUser } from '../actions/interface';
+import { loginTypes, USER_TOKEN } from '../actions/types';
 
 interface IAction {
   type: 'LOGIN_SUCCESS' | 'LOGIN_FAILURE' | 'LOGOUT';
-  user?: IUser;
+  token?: string;
 }
 
 interface IState {
   loggingIn: boolean;
-  user: IUser | {};
+  token: string;
 }
 
 const { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } = loginTypes;
 
-const user = localStorage[USER] ? JSON.parse(localStorage[USER]) : undefined;
+const token: string = localStorage[USER_TOKEN];
 
-const initialState: IState = user
-  ? { loggingIn: true, user }
-  : { loggingIn: false, user: {} };
+const initialState: IState = token
+  ? { loggingIn: true, token }
+  : { loggingIn: false, token: '' };
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {
@@ -25,19 +24,19 @@ export default (state = initialState, action: IAction) => {
       return {
         ...state,
         loggingIn: true,
-        user: action.user
+        token: action.token
       };
     case LOGIN_FAILURE:
       return {
         ...state,
         loggingIn: false,
-        user: {}
+        token: ''
       };
     case LOGOUT:
       return {
         ...state,
         loggingIn: false,
-        user: {}
+        token: ''
       };
     default:
       return state;

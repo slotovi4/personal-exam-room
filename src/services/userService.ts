@@ -1,7 +1,7 @@
 import { API_URL } from '../actions/types';
 import { IUser } from '../actions/interface';
 import axios, { AxiosResponse } from 'axios';
-import { USER } from '../actions/types';
+import { USER_TOKEN } from '../actions/types';
 import { logout } from '../helpers/logout';
 
 const login = (phone: string, password: string) =>
@@ -9,7 +9,7 @@ const login = (phone: string, password: string) =>
     .post(`${API_URL}/v1/account/login`, { phone, password })
     .then(handleResponse)
     .then((user: IUser) => {
-      localStorage.setItem(USER, JSON.stringify(user));
+      localStorage.setItem(USER_TOKEN, user.token);
 
       return user;
     });

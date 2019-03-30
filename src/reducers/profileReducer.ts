@@ -1,23 +1,24 @@
 import { profileTypes, USER_PROFILE } from '../actions/types';
+import { IUser } from '../actions/interface';
 
 interface IAction {
   type: 'GET_PROFILE' | 'GET_PROFILE_FAILURE';
-  profile?: any;
+  profile?: IUser;
 }
 
 interface IState {
-  profile: any;
+  profile: IUser;
 }
 
 const { GET_PROFILE } = profileTypes;
 
 const profile = localStorage[USER_PROFILE]
   ? JSON.parse(localStorage[USER_PROFILE])
-  : undefined;
+  : {};
 
 localStorage.removeItem(USER_PROFILE);
 
-const initialState: IState = profile ? profile : { profile: {} };
+const initialState: IState = profile;
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {
