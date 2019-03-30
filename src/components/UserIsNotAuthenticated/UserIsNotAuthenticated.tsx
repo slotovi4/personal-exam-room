@@ -1,16 +1,14 @@
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const store = localStorage['user-store']
-  ? JSON.parse(localStorage['user-store'])
-  : null;
-
-const loggingIn = store.login.loggingIn;
+interface IProps {
+  loggingIn: boolean;
+}
 
 export default (ComposedComponent: any) =>
-  class UserIsNotAuthenticated extends React.Component {
+  class UserIsNotAuthenticated extends React.Component<IProps> {
     public render() {
-      return !loggingIn ? (
+      return !this.props.loggingIn ? (
         <ComposedComponent {...this.props} />
       ) : (
         <Redirect to={'/'} />

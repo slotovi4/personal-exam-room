@@ -2,7 +2,7 @@ import { loginTypes } from './types';
 import { Dispatch } from 'react';
 import { userService } from '../services/userService';
 
-const { LOGIN_SUCCESS, LOGIN_FAILURE } = loginTypes;
+const { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } = loginTypes;
 
 export const loginUser = (phone: string, password: string) => (
   dispatch: Dispatch<object>
@@ -13,4 +13,9 @@ export const loginUser = (phone: string, password: string) => (
       user => dispatch({ type: LOGIN_SUCCESS, user }),
       (error: string) => dispatch({ type: LOGIN_FAILURE, error })
     );
+};
+
+export const logoutUser = () => (dispatch: Dispatch<object>) => {
+  userService.logout();
+  dispatch({ type: LOGOUT });
 };

@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import store from '../../store';
 
 // components
-import { HomeAutnContainer } from '../../containers/authenticatedContainer';
-import { LoginNotAuthContainer } from '../../containers/notAuthenticatedContainer';
+import { AuthHomeContainer } from '../../containers/authContainer';
+import { NotAuthLoginContainer } from '../../containers/notAuthContainer';
 
 class App extends React.Component {
   public render() {
@@ -15,8 +15,12 @@ class App extends React.Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact={true} path="/" component={HomeAutnContainer} />
-            <Route path="/login" component={LoginNotAuthContainer} />
+            <Route exact={true} path="/" component={AuthHomeContainer} />
+            <Route
+              exact={true}
+              path="/login"
+              component={NotAuthLoginContainer}
+            />
           </Switch>
         </Router>
       </Provider>

@@ -2,7 +2,7 @@ import { loginTypes } from '../actions/types';
 import { IUser } from '../actions/interface';
 
 interface IAction {
-  type: 'LOGIN_SUCCESS' | 'LOGIN_FAILURE';
+  type: 'LOGIN_SUCCESS' | 'LOGIN_FAILURE' | 'LOGOUT';
   user?: IUser;
 }
 
@@ -11,7 +11,7 @@ interface IState {
   user: IUser | {};
 }
 
-const { LOGIN_SUCCESS, LOGIN_FAILURE } = loginTypes;
+const { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } = loginTypes;
 
 const user = localStorage['user-store']
   ? JSON.parse(localStorage['user-store'])
@@ -30,6 +30,12 @@ export default (state = initialState, action: IAction) => {
         user: action.user
       };
     case LOGIN_FAILURE:
+      return {
+        ...state,
+        loggingIn: false,
+        user: {}
+      };
+    case LOGOUT:
       return {
         ...state,
         loggingIn: false,
