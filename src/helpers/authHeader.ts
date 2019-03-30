@@ -4,7 +4,7 @@ export function authHeader() {
   const token = localStorage[USER_TOKEN];
 
   if (token) {
-    return { Authorization: 'Bearer ' + token };
+    return { Authorization: `Bearer ${token}` };
   } else {
     return {};
   }
