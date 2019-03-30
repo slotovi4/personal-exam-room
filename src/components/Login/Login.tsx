@@ -18,12 +18,15 @@ class Login extends React.Component<IProps, IState> {
             type="tel"
             name="phone"
             placeholder="tel"
+            required={true}
+            pattern="^[0-9]{10}$"
             onChange={e => this.setState({ phone: e.target.value })}
           />
           <input
             type="password"
             name="password"
             placeholder="pass"
+            required={true}
             onChange={e => this.setState({ password: e.target.value })}
           />
           <button type="submit">login</button>
@@ -33,10 +36,9 @@ class Login extends React.Component<IProps, IState> {
   }
 
   private submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const { phone, password } = this.state;
     const { loginUser } = this.props;
-
-    e.preventDefault();
 
     loginUser(phone, password);
   };
