@@ -37,10 +37,10 @@ class Login extends React.Component<IProps, IState> {
 
   private submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { phone, password } = this.state;
+    // const { phone, password } = this.state;
     const { loginUser } = this.props;
 
-    loginUser(phone, password);
+    loginUser('9794426521', '123456');
   };
 }
 

@@ -1,4 +1,4 @@
-import { loginTypes } from '../actions/types';
+import { loginTypes, USER } from '../actions/types';
 import { IUser } from '../actions/interface';
 
 interface IAction {
@@ -13,9 +13,7 @@ interface IState {
 
 const { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } = loginTypes;
 
-const user = localStorage['user-store']
-  ? JSON.parse(localStorage['user-store'])
-  : undefined;
+const user = localStorage[USER] ? JSON.parse(localStorage[USER]) : undefined;
 
 const initialState: IState = user
   ? { loggingIn: true, user }
