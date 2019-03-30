@@ -18,7 +18,7 @@ class Home extends React.Component<IProps, IState> {
   };
 
   public componentWillMount() {
-    // this.props.getUserProfile();
+    this.props.getUserProfile();
   }
 
   public render() {

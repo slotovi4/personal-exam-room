@@ -9,7 +9,8 @@ const initialState = {
   login: {
     loggingIn: stateToken ? true : false,
     token: stateToken || ''
-  }
+  },
+  profile: {}
 };
 
 const middleware = [thunk];
@@ -32,12 +33,4 @@ store.subscribe(() => {
     ? localStorage.setItem(USER_TOKEN, token)
     : localStorage.removeItem(USER_TOKEN);
 });
-
-// store.subscribe(
-//   () =>
-//     (localStorage[USER_PROFILE] = profile
-//       ? JSON.stringify(store.getState().profile)
-//       : {})
-// );
-
 export default store;
