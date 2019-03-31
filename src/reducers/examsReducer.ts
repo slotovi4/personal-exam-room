@@ -1,13 +1,18 @@
 import { examsTypes } from '../actions/types';
+import { IExams } from '../actions/interface';
 
 interface IAction {
   type: 'GET_EXAMS' | 'GET_EXAMS_FAILURE';
-  exams?: any;
+  exams?: IExams;
+}
+
+interface IState {
+  exams: IExams;
 }
 
 const { GET_EXAMS } = examsTypes;
 
-const initialState: any | {} = {};
+const initialState: IState | {} = {};
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {
