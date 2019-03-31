@@ -24,6 +24,8 @@ export interface IExam {
   address: string;
   city: string;
   status: string;
+  statusChangeTime: string;
+  duration: number;
 }
 
 export interface IExams {

@@ -1,5 +1,9 @@
 import * as React from 'react';
 import { IExam } from '../../actions/interface';
+import { Table } from 'react-bootstrap';
+import { cn } from '@bem-react/classname';
+import { getConvertedDate } from '../../helpers/getConvertedDate';
+import './Exams.scss';
 
 interface IProps {
   exams: IExam[];
@@ -17,18 +21,26 @@ class Exams extends React.Component<IProps> {
 
   public render() {
     const { exams } = this.props;
+    const ex = cn('Exams');
 
     return (
-      <section>
-        <span>расписание экзаменов</span>
-        <table>
+      <section className={ex()}>
+        <header className={ex('Header')}>
+          <h3 className={ex('Title')}>Расписание экзаменов</h3>
+          <h6 className={ex('Title', { pre: true })}>
+            Список всех экзаменов открытых для записи, а также тех, на которые
+            вы записаны
+          </h6>
+        </header>
+
+        <Table striped={true} bordered={true} hover={true}>
           <thead>
             <tr>
-              <th>дата и время</th>
-              <th>квалификация</th>
-              <th>уровень</th>
-              <th>город</th>
-              <th>статус</th>
+              <th>Дата и время</th>
+              <th>Квалификация</th>
+              <th>Уровень</th>
+              <th>Город</th>
+              <th>Статус</th>
             </tr>
           </thead>
           <tbody>
@@ -46,9 +58,10 @@ class Exams extends React.Component<IProps> {
                   i
                 ) => (
                   <tr key={`exam_${i}`}>
-                    <th>{date}</th>
+                    <th>{getConvertedDate(date)}</th>
                     <th>
-                      {qualificationTitle} {address}
+                      <h5>{qualificationTitle}</h5>
+                      <span>{address}</span>
                     </th>
                     <th>{qualificationLevel}</th>
                     <th>{city}</th>
@@ -57,7 +70,7 @@ class Exams extends React.Component<IProps> {
                 )
               )}
           </tbody>
-        </table>
+        </Table>
       </section>
     );
   }
