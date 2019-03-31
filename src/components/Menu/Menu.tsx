@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { cn } from '@bem-react/classname';
+import { Navbar } from 'react-bootstrap';
+import './Menu.scss';
 
 interface IProps {
   firstName: string;
   lastName: string;
+  location: Location;
   getUserProfile: () => void;
 }
 
@@ -17,15 +21,36 @@ class Menu extends React.Component<IProps> {
   }
 
   public render() {
-    const { firstName, lastName } = this.props;
+    const { firstName, lastName, location } = this.props;
+    const menu = cn('Menu');
 
     return (
-      <section>
-        <h5>
-          {firstName} {lastName}
-        </h5>
-        <Link to="/profile">профилль</Link>
-        <Link to="/exams">расписание экзаменов</Link>
+      <section className={menu()}>
+        <Navbar bg="dark" variant="dark" className={menu('Nav')}>
+          <h5 className={menu('Title')}>
+            {firstName} {lastName}
+          </h5>
+          <Link
+            to="/"
+            className={menu('Link', { active: location.pathname === '/' })}
+          >
+            Главная
+          </Link>
+          <Link
+            to="/profile"
+            className={menu('Link', {
+              active: location.pathname === '/profile'
+            })}
+          >
+            Профиль
+          </Link>
+          <Link
+            to="/exams"
+            className={menu('Link', { active: location.pathname === '/exams' })}
+          >
+            Расписание экзаменов
+          </Link>
+        </Navbar>
       </section>
     );
   }

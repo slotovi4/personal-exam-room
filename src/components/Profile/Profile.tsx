@@ -10,8 +10,6 @@ class Profile extends React.Component<IProps> {
   public componentWillMount() {
     const { profile } = this.props;
 
-    console.log(profile);
-
     if (!Object.keys(profile).length) {
       this.props.getUserProfile();
     }

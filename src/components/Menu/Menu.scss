@@ -1,0 +1,43 @@
+.Menu {
+  width: 250px;
+
+  &-Title {
+    margin: 0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: white;
+    border-bottom: 1px solid gray;
+  }
+
+  &-Nav {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  &-Link {
+    background-color: gray;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-out;
+    color: white;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      opacity: 1;
+      color: white;
+    }
+
+    &_active {
+      opacity: 1;
+    }
+  }
+}
