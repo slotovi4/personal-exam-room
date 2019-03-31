@@ -6,7 +6,7 @@ interface IProps {
 }
 
 export default (ComposedComponent: any) =>
-  class UserIsNotAuthenticated extends React.Component<IProps> {
+  class NotAuthPage extends React.Component<IProps> {
     public render() {
       return !this.props.loggingIn ? (
         <ComposedComponent {...this.props} />
