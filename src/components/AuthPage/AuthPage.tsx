@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Redirect } from 'react-router-dom';
+import { cn } from '@bem-react/classname';
+import './AuthPage.scss';
 
 // components
 import { MenuContainer } from '../../containers/menuContainer';
@@ -9,13 +11,15 @@ interface IProps {
 }
 
 export default (ComposedComponent: any) =>
-  class UserIsAuthenticated extends React.Component<IProps> {
+  class AuthPage extends React.Component<IProps> {
     public render() {
+      const page = cn('AuthPage');
+
       return this.props.loggingIn ? (
-        <React.Fragment>
+        <div className={page()}>
           <MenuContainer />
           <ComposedComponent {...this.props} />
-        </React.Fragment>
+        </div>
       ) : (
         <Redirect to={'/login'} />
       );
