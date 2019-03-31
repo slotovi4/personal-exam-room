@@ -1,0 +1,23 @@
+.Profile {
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+
+  &-Title {
+    margin: 0;
+  }
+
+  &-Content {
+    margin-top: 20px;
+  }
+
+  &-Group {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
