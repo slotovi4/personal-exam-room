@@ -1,0 +1,76 @@
+.Login {
+  padding: 20px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  position: relative;
+
+  &-Header {
+    margin-bottom: 20px;
+  }
+
+  &-Title {
+    display: inline-block;
+    width: 100%;
+
+    &_pre {
+      color: gray;
+      padding-top: 5px;
+      font-size: 12px;
+    }
+  }
+
+  &-Text {
+    display: block;
+    margin: 0 auto;
+    max-width: 100px;
+
+    &_pass {
+      margin-right: 0;
+      color: gray;
+      font-size: 12px;
+      cursor: pointer;
+      border-bottom: 1px dotted gray;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+
+  &-FieldContainer {
+    position: relative;
+
+    &_type_phone {
+      &::after {
+        content: '+7';
+        position: absolute;
+        left: 10px;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+    }
+
+    &_type_save {
+      text-align: center;
+    }
+  }
+
+  &-Field {
+    &_type_phone {
+      padding-left: 30px;
+    }
+  }
+
+  &-Footer {
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    left: 0;
+  }
+}
