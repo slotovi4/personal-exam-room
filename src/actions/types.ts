@@ -11,3 +11,8 @@ export const profileTypes = {
   GET_PROFILE: 'GET_PROFILE',
   GET_PROFILE_FAILURE: 'GET_PROFILE_FAILURE'
 };
+
+export const examsTypes = {
+  GET_EXAMS: 'GET_EXAMS',
+  GET_EXAMS_FAILURE: 'GET_EXAMS_FAILURE'
+};

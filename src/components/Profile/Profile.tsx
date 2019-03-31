@@ -3,31 +3,38 @@ import { IProfile } from '../../actions/interface';
 
 interface IProps {
   profile: IProfile;
+  getUserProfile: () => void;
 }
 
-const Profile = ({ profile }: IProps) => {
-  const {
-    firstName,
-    lastName,
-    sex,
-    birthDate,
-    email,
-    emailConfirmed,
-    phone
-  } = profile;
+class Profile extends React.Component<IProps> {
+  public componentWillMount() {
+    this.props.getUserProfile();
+  }
 
-  return (
-    <section>
-      <span>profile</span>
-      <span>{firstName}</span>
-      <span>{lastName}</span>
-      <span>{sex}</span>
-      <span>{birthDate}</span>
-      <span>{email}</span>
-      <span>{emailConfirmed}</span>
-      <span>{phone}</span>
-    </section>
-  );
-};
+  public render() {
+    const {
+      firstName,
+      lastName,
+      sex,
+      birthDate,
+      email,
+      emailConfirmed,
+      phone
+    } = this.props.profile;
+
+    return (
+      <section>
+        <span>profile</span>
+        <span>{firstName}</span>
+        <span>{lastName}</span>
+        <span>{sex}</span>
+        <span>{birthDate}</span>
+        <span>{email}</span>
+        <span>{emailConfirmed}</span>
+        <span>{phone}</span>
+      </section>
+    );
+  }
+}
 
 export default Profile;

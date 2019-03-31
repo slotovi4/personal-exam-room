@@ -8,7 +8,8 @@ import store from '../../store';
 // components
 import {
   AuthHomeContainer,
-  AuthProfileContainer
+  AuthProfileContainer,
+  AuthExamsContainer
 } from '../../containers/authContainer';
 import { NotAuthLoginContainer } from '../../containers/notAuthContainer';
 
@@ -24,6 +25,7 @@ class App extends React.Component {
               path="/profile"
               component={AuthProfileContainer}
             />
+            <Route exact={true} path="/exams" component={AuthExamsContainer} />
             <Route
               exact={true}
               path="/login"
