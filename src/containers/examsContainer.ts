@@ -3,6 +3,8 @@ import { getUserExams } from '../actions/examsActions';
 import Exams from '../components/Exams/Exams';
 
 export const ExamsContainer = connect(
-  null,
+  (state: any) => ({
+    exams: state.exams.exams
+  }),
   { getUserExams }
 )(Exams);
