@@ -78,7 +78,7 @@ class Profile extends React.Component<IProps> {
               <InputGroup.Text>Пол</InputGroup.Text>
             </InputGroup.Prepend>
 
-            <ToggleButtonGroup type="radio" name="options" value={sex}>
+            <ToggleButtonGroup type="radio" name="options" defaultValue={sex}>
               <ToggleButton value="male">Муж</ToggleButton>
               <ToggleButton value="female">Жен</ToggleButton>
             </ToggleButtonGroup>
