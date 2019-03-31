@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import AuthPage from '../components/AuthPage/AuthPage';
-import { HomeContainer } from '../containers/homeContainer';
+import Home from '../components/Home/Home';
 import { ProfileContainer } from '../containers/profileContainer';
 import { ExamsContainer } from '../containers/examsContainer';
 
 export const AuthHomeContainer = connect((state: any) => ({
   loggingIn: state.login.loggingIn
-}))(AuthPage(HomeContainer));
+}))(AuthPage(Home));
 
 export const AuthProfileContainer = connect((state: any) => ({
   loggingIn: state.login.loggingIn

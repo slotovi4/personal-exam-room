@@ -9,6 +9,7 @@ interface IProps {
   lastName: string;
   location: Location;
   getUserProfile: () => void;
+  logoutUser: () => void;
 }
 
 class Menu extends React.Component<IProps> {
@@ -21,7 +22,7 @@ class Menu extends React.Component<IProps> {
   }
 
   public render() {
-    const { firstName, lastName, location } = this.props;
+    const { firstName, lastName, location, logoutUser } = this.props;
     const menu = cn('Menu');
 
     return (
@@ -50,6 +51,7 @@ class Menu extends React.Component<IProps> {
           >
             Расписание экзаменов
           </Link>
+          <button onClick={logoutUser}>Выйти</button>
         </Navbar>
       </section>
     );

@@ -1,20 +1,11 @@
 import * as React from 'react';
 
-interface IProps {
-  logoutUser: () => void;
-}
-
-class Home extends React.Component<IProps> {
-  public render() {
-    const { logoutUser } = this.props;
-
-    return (
-      <div>
-        <span>home</span>
-        <button onClick={logoutUser}>logout</button>
-      </div>
-    );
-  }
-}
+const Home = () => {
+  return (
+    <div>
+      <span>home</span>
+    </div>
+  );
+};
 
 export default Home;
