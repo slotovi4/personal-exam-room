@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@bem-react/classname';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Button } from 'react-bootstrap';
 import './Menu.scss';
 
 interface IProps {
@@ -51,7 +51,7 @@ class Menu extends React.Component<IProps> {
           >
             Расписание экзаменов
           </Link>
-          <button onClick={logoutUser}>Выйти</button>
+          <Button onClick={logoutUser}>Выйти</Button>
         </Navbar>
       </section>
     );
