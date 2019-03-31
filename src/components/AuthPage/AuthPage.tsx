@@ -16,10 +16,10 @@ export default (ComposedComponent: any) =>
       const page = cn('AuthPage');
 
       return this.props.loggingIn ? (
-        <div className={page()}>
+        <section className={page()}>
           <MenuContainer />
           <ComposedComponent {...this.props} />
-        </div>
+        </section>
       ) : (
         <Redirect to={'/login'} />
       );

@@ -13,9 +13,9 @@ export default (ComposedComponent: any) =>
       const page = cn('NotAuthPage');
 
       return !this.props.loggingIn ? (
-        <div className={page()}>
+        <section className={page()}>
           <ComposedComponent {...this.props} />
-        </div>
+        </section>
       ) : (
         <Redirect to={'/'} />
       );
