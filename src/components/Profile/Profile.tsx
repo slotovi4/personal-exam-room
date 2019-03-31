@@ -1,14 +1,32 @@
 import * as React from 'react';
+import { IProfile } from '../../actions/interface';
 
 interface IProps {
-  data: any;
+  profile: IProfile;
 }
 
-const Profile = ({ data }: IProps) => {
+const Profile = ({ profile }: IProps) => {
+  const {
+    firstName,
+    lastName,
+    sex,
+    birthDate,
+    email,
+    emailConfirmed,
+    phone
+  } = profile;
+
   return (
-    <div>
+    <section>
       <span>profile</span>
-    </div>
+      <span>{firstName}</span>
+      <span>{lastName}</span>
+      <span>{sex}</span>
+      <span>{birthDate}</span>
+      <span>{email}</span>
+      <span>{emailConfirmed}</span>
+      <span>{phone}</span>
+    </section>
   );
 };
 

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 interface IProps {
   firstName: string;
@@ -11,8 +12,8 @@ const Menu = ({ firstName, lastName }: IProps) => {
       <h5>
         {firstName} {lastName}
       </h5>
-      <span>профилль</span>
-      <span>расписание экзаменов</span>
+      <Link to="/profile">профилль</Link>
+      <Link to="/exams">расписание экзаменов</Link>
     </section>
   );
 };
