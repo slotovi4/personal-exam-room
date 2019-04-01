@@ -10,6 +10,6 @@ export const getUserExams = () => (dispatch: Dispatch<object>) => {
     .getExams()
     .then(
       exams => dispatch({ type: GET_EXAMS, exams }),
-      (message: string) => dispatch({ type: ERROR, message })
+      message => dispatch({ type: ERROR, message })
     );
 };
