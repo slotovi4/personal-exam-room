@@ -16,6 +16,5 @@ export const examsTypes = {
 
 export const alertTypes = {
   ALERT: 'ALERT',
-  ERROR: 'ERROR',
-  CLEAR: 'CLEAR'
+  ERROR: 'ERROR'
 };

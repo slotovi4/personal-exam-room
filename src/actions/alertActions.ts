@@ -1,7 +1,7 @@
 import { alertTypes } from './types';
 import { Dispatch } from 'react';
 
-const { ALERT, ERROR, CLEAR } = alertTypes;
+const { ALERT, ERROR } = alertTypes;
 
 export const alertMessage = (message: string) => (
   dispatch: Dispatch<object>
@@ -16,11 +16,5 @@ export const alertError = (message: string) => (dispatch: Dispatch<object>) => {
   dispatch({
     type: ERROR,
     message
-  });
-};
-
-export const alertClear = () => (dispatch: Dispatch<object>) => {
-  dispatch({
-    type: CLEAR
   });
 };

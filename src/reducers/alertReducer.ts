@@ -1,7 +1,7 @@
 import { alertTypes } from '../actions/types';
 
 interface IAction {
-  type: 'ALERT' | 'ERROR' | 'CLEAR';
+  type: 'ALERT' | 'ERROR';
   message?: string;
 }
 
@@ -10,7 +10,7 @@ interface IState {
   messageType: 'error' | 'alert' | '';
 }
 
-const { ALERT, ERROR, CLEAR } = alertTypes;
+const { ALERT, ERROR } = alertTypes;
 
 const initialState: IState = { message: '', messageType: '' };
 
@@ -27,10 +27,6 @@ export default (state = initialState, action: IAction) => {
         ...state,
         message: action.message,
         messageType: 'error'
-      };
-    case CLEAR:
-      return {
-        ...initialState
       };
     default:
       return state;
