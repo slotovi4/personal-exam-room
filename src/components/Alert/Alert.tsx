@@ -7,7 +7,11 @@ interface IProps {
   alert: IAlert;
 }
 
-class Alert extends React.Component<IProps> {
+interface IState {
+  show: boolean;
+}
+
+class Alert extends React.Component<IProps, IState> {
   public state = {
     show: false
   };
@@ -18,8 +22,11 @@ class Alert extends React.Component<IProps> {
     }
   }
 
-  public shouldComponentUpdate(nextProps: IProps) {
-    if (nextProps.alert.message !== this.props.alert.message) {
+  public shouldComponentUpdate(nextProps: IProps, nextState: IState) {
+    const { message } = nextProps.alert;
+    const { show } = nextState;
+
+    if (message !== this.props.alert.message || show !== this.state.show) {
       return true;
     }
 

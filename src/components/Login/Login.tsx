@@ -13,8 +13,14 @@ interface IState {
 }
 
 class Login extends React.Component<IProps, IState> {
+  public state = {
+    phone: '',
+    password: ''
+  };
+
   public render() {
     const login = cn('Login');
+    const { phone, password } = this.state;
 
     return (
       <article className={login()}>
@@ -34,6 +40,7 @@ class Login extends React.Component<IProps, IState> {
                 maxLength={10}
                 pattern="^[0-9]{10}$"
                 name="phone"
+                value={phone}
                 required={true}
                 onChange={(e: any) => this.setState({ phone: e.target.value })}
               />
@@ -48,6 +55,7 @@ class Login extends React.Component<IProps, IState> {
                 type="password"
                 name="password"
                 required={true}
+                value={password}
                 onChange={(e: any) =>
                   this.setState({ password: e.target.value })
                 }
@@ -82,6 +90,8 @@ class Login extends React.Component<IProps, IState> {
     e.preventDefault();
     const { phone, password } = this.state;
     const { loginUser } = this.props;
+
+    this.setState({ password: '' });
 
     loginUser(phone, password);
   };
