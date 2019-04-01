@@ -30,7 +30,7 @@ export default (state = initialState, action: IAction) => {
       };
     case CLEAR:
       return {
-        initialState
+        ...initialState
       };
     default:
       return state;

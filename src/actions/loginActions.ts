@@ -12,7 +12,7 @@ export const loginUser = (phone: string, password: string) => (
     .login(phone, password)
     .then(
       token => dispatch({ type: LOGIN_SUCCESS, token }),
-      (message: string) => dispatch({ type: ERROR, message })
+      message => dispatch({ type: ERROR, message })
     );
 };
 

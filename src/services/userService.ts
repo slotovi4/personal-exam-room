@@ -1,30 +1,40 @@
+import axios from 'axios';
 import { API_URL } from '../actions/types';
 import { IUser } from '../actions/interface';
-import axios, { AxiosResponse } from 'axios';
 import { USER_TOKEN } from '../actions/types';
 import { logout } from '../helpers/logout';
 
-const login = (phone: string, password: string) =>
-  axios
-    .post(`${API_URL}/v1/account/login`, { phone, password })
-    .then(handleResponse)
-    .then((user: IUser) => {
-      const token = user.token;
-      localStorage.setItem(USER_TOKEN, token);
-
-      return token;
-    });
-
-const handleResponse = (response: AxiosResponse) => {
-  if (response.statusText !== 'OK') {
-    if (response.status === 401) {
-      logout();
+const login = async (phone: string, password: string) => {
+  const axiosInstance = axios.create({
+    validateStatus: status => {
+      return status >= 200 && status <= 503;
     }
+  });
 
-    return response.statusText;
+  const response = await axiosInstance.post(`${API_URL}/v1/account/login`, {
+    phone,
+    password
+  });
+
+  const resStatus = response.status;
+
+  if (resStatus === 200) {
+    const user: IUser = response.data;
+    const { token } = user;
+
+    localStorage.setItem(USER_TOKEN, token);
+
+    return token;
+  } else if (resStatus === 400) {
+    return Promise.reject('Указан неверный формат данных.');
+  } else if (resStatus === 401) {
+    logout();
+    return Promise.reject('Указан неверный логин /пароль.');
+  } else if (resStatus === 500) {
+    return Promise.reject('Внутренняя ошибка сервера.');
   }
 
-  return response.data;
+  return Promise.reject(response.statusText);
 };
 
 export const userService = {
