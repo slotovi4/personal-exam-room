@@ -2,7 +2,7 @@ import { examsTypes } from '../actions/types';
 import { IExams } from '../actions/interface';
 
 interface IAction {
-  type: 'GET_EXAMS' | 'GET_EXAMS_FAILURE';
+  type: 'GET_EXAMS';
   exams?: IExams;
 }
 

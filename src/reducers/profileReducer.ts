@@ -2,7 +2,7 @@ import { profileTypes } from '../actions/types';
 import { IUser } from '../actions/interface';
 
 interface IAction {
-  type: 'GET_PROFILE' | 'GET_PROFILE_FAILURE';
+  type: 'GET_PROFILE';
   profile?: IUser;
 }
 

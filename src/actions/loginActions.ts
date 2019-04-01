@@ -1,8 +1,9 @@
-import { loginTypes } from './types';
+import { loginTypes, alertTypes } from './types';
 import { Dispatch } from 'react';
 import { userService } from '../services/userService';
 
-const { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } = loginTypes;
+const { LOGIN_SUCCESS, LOGOUT } = loginTypes;
+const { ERROR } = alertTypes;
 
 export const loginUser = (phone: string, password: string) => (
   dispatch: Dispatch<object>
@@ -11,7 +12,7 @@ export const loginUser = (phone: string, password: string) => (
     .login(phone, password)
     .then(
       token => dispatch({ type: LOGIN_SUCCESS, token }),
-      (error: string) => dispatch({ type: LOGIN_FAILURE, error })
+      (message: string) => dispatch({ type: ERROR, message })
     );
 };
 

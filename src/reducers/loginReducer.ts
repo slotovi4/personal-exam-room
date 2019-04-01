@@ -1,7 +1,7 @@
 import { loginTypes, USER_TOKEN } from '../actions/types';
 
 interface IAction {
-  type: 'LOGIN_SUCCESS' | 'LOGIN_FAILURE' | 'LOGOUT';
+  type: 'LOGIN_SUCCESS' | 'LOGOUT';
   token?: string;
 }
 
@@ -10,7 +10,7 @@ interface IState {
   token: string;
 }
 
-const { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } = loginTypes;
+const { LOGIN_SUCCESS, LOGOUT } = loginTypes;
 
 const token: string = localStorage[USER_TOKEN];
 
@@ -25,12 +25,6 @@ export default (state = initialState, action: IAction) => {
         ...state,
         loggingIn: true,
         token: action.token
-      };
-    case LOGIN_FAILURE:
-      return {
-        ...state,
-        loggingIn: false,
-        token: ''
       };
     case LOGOUT:
       return {
