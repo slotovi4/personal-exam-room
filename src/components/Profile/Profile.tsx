@@ -16,10 +16,11 @@ interface IProps {
 
 class Profile extends React.Component<IProps> {
   public componentWillMount() {
-    const { profile } = this.props;
+    const { profile, getUserProfile } = this.props;
 
     if (!Object.keys(profile).length) {
-      this.props.getUserProfile();
+      console.log(2);
+      getUserProfile();
     }
   }
 

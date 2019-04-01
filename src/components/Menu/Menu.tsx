@@ -14,10 +14,10 @@ interface IProps {
 
 class Menu extends React.Component<IProps> {
   public componentWillMount() {
-    const { lastName, firstName } = this.props;
+    const { lastName, firstName, getUserProfile } = this.props;
 
     if (!lastName && !firstName) {
-      this.props.getUserProfile();
+      getUserProfile();
     }
   }
 

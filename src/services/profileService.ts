@@ -1,25 +1,37 @@
 import { API_URL } from '../actions/types';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { logout } from '../helpers/logout';
 import { authHeader } from '../helpers/authHeader';
-import { IUser } from '../actions/interface';
+import { IProfile } from '../actions/interface';
 
-const getProfile = () =>
-  axios
-    .get(`${API_URL}/v1/account/profile`, { headers: authHeader() })
-    .then(handleResponse)
-    .then((profile: IUser) => profile);
-
-const handleResponse = (response: AxiosResponse) => {
-  if (response.statusText !== 'OK') {
-    if (response.status === 401) {
-      logout();
+const getProfile = async () => {
+  const axiosInstance = axios.create({
+    validateStatus: status => {
+      return status >= 200 && status <= 503;
     }
+  });
 
-    return response.statusText;
+  const response = await axiosInstance.get(`${API_URL}/v1/account/profile`, {
+    headers: authHeader()
+  });
+
+  const resStatus = response.status;
+
+  if (resStatus === 200) {
+    const profile: IProfile = response.data;
+
+    return profile;
+  } else if (resStatus === 401) {
+    logout();
+    location.reload(true);
+    return Promise.reject('Unauthorized');
+  } else if (resStatus === 403) {
+    return Promise.reject('Forbidden');
+  } else if (resStatus === 500) {
+    return Promise.reject('Внутренняя ошибка сервера.');
   }
 
-  return response.data;
+  return Promise.reject(response.statusText);
 };
 
 export const profileService = {

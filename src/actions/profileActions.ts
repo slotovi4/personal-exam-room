@@ -10,6 +10,6 @@ export const getUserProfile = () => (dispatch: Dispatch<object>) => {
     .getProfile()
     .then(
       profile => dispatch({ type: GET_PROFILE, profile }),
-      (message: string) => dispatch({ type: ERROR, message })
+      message => dispatch({ type: ERROR, message })
     );
 };
