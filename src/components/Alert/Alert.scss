@@ -1,0 +1,21 @@
+.Alert {
+  position: fixed;
+  padding: 20px;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+
+  &_type_error {
+    background-color: rgb(240, 62, 62);
+  }
+
+  &_type_alert {
+    background-color: rgb(51, 189, 51);
+  }
+
+  &-Message {
+    color: white;
+    font-size: 16px;
+    line-height: 18px;
+  }
+}

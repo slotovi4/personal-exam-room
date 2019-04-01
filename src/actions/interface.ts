@@ -34,3 +34,8 @@ export interface IExams {
   pageSize: number;
   total: number;
 }
+
+export interface IAlert {
+  message: string;
+  messageType: 'error' | 'alert' | '';
+}
