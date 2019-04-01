@@ -11,19 +11,9 @@ import './Profile.scss';
 
 interface IProps {
   profile: IProfile;
-  getUserProfile: () => void;
 }
 
 class Profile extends React.Component<IProps> {
-  public componentWillMount() {
-    const { profile, getUserProfile } = this.props;
-
-    if (!Object.keys(profile).length) {
-      console.log(2);
-      getUserProfile();
-    }
-  }
-
   public render() {
     const prof = cn('Profile');
     const { profile } = this.props;
