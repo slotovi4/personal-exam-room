@@ -16,3 +16,9 @@ export const examsTypes = {
   GET_EXAMS: 'GET_EXAMS',
   GET_EXAMS_FAILURE: 'GET_EXAMS_FAILURE'
 };
+
+export const alertTypes = {
+  ALERT: 'ALERT',
+  ERROR: 'ERROR',
+  CLEAR: 'CLEAR'
+};
