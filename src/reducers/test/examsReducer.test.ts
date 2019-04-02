@@ -35,5 +35,5 @@ describe('Exams reducer', () => {
   });
 
   it('Defaults array for incorrect action', () =>
-    expect(Exam(initialState, {})).toEqual({}));
+    expect(Exam(initialState, {})).toEqual(initialState));
 });

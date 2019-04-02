@@ -1,10 +1,9 @@
 import Alert, { IAction, initialState } from '../alertReducer';
-import { IAlert } from '../../actions/interface';
 import * as deepFreeze from 'deep-freeze';
 
 describe('Alert reducer', () => {
   it('ALERT sucess', () => {
-    const state: IAlert = { message: '', messageType: '' };
+    const state = initialState;
     const action: IAction = { type: 'ALERT', message: 'привет сообщение' };
 
     deepFreeze([state, action]);
@@ -17,7 +16,7 @@ describe('Alert reducer', () => {
   });
 
   it('ERROR sucess', () => {
-    const state: IAlert = { message: '', messageType: '' };
+    const state = initialState;
     const action: IAction = { type: 'ERROR', message: 'ошибка' };
 
     deepFreeze([state, action]);
@@ -30,5 +29,5 @@ describe('Alert reducer', () => {
   });
 
   it('Defaults array for incorrect action', () =>
-    expect(Alert(initialState, {})).toEqual({ message: '', messageType: '' }));
+    expect(Alert(initialState, {})).toEqual(initialState));
 });
