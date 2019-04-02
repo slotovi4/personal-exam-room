@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { API_URL } from '../actions/types';
 import { IUser } from '../actions/interface';
-import { USER_TOKEN } from '../actions/types';
 import { logout } from '../helpers/logout';
 
 const login = async (phone: string, password: string) => {
@@ -21,8 +20,6 @@ const login = async (phone: string, password: string) => {
   if (resStatus === 200) {
     const user: IUser = response.data;
     const { token } = user;
-
-    localStorage.setItem(USER_TOKEN, token);
 
     return token;
   } else if (resStatus === 400) {
