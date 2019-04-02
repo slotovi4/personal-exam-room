@@ -22,12 +22,14 @@
   },
   "devDependencies": {
     "@bem-react/classname": "^1.4.4",
+    "@types/deep-freeze": "^0.1.1",
     "@types/jest": "^24.0.9",
     "@types/node": "^11.9.6",
     "@types/react": "^16.8.6",
     "@types/react-dom": "^16.8.2",
     "@types/react-redux": "^7.0.1",
     "@types/react-router-dom": "^4.3.1",
+    "deep-freeze": "0.0.1",
     "typescript": "^3.3.3333"
   }
 }
