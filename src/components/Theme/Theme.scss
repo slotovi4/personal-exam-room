@@ -1,0 +1,29 @@
+.Theme {
+  display: flex;
+  align-items: center;
+
+  &-Title {
+    margin-right: 30px;
+  }
+
+  &-Color {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+
+    &_type_dark {
+      background-color: #141414;
+    }
+
+    &_type_light {
+      background-color: white;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
