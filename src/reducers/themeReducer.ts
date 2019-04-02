@@ -7,7 +7,7 @@ interface IAction {
 }
 
 interface IState {
-  theme: 'light' | 'dark';
+  theme: ITheme;
 }
 
 const { SET_THEME } = themeTypes;

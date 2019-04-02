@@ -11,12 +11,19 @@ interface IProps {
 class Theme extends React.Component<IProps> {
   public render() {
     const th = cn('Theme');
+    const { setThemeStyle } = this.props;
 
     return (
       <section className={th()}>
         <span className={th('Title')}>Выбор темы</span>
-        <div className={th('Color', { type: 'dark' })} />
-        <div className={th('Color', { type: 'light' })} />
+        <div
+          className={th('Color', { type: 'dark' })}
+          onClick={() => setThemeStyle('dark')}
+        />
+        <div
+          className={th('Color', { type: 'light' })}
+          onClick={() => setThemeStyle('light')}
+        />
       </section>
     );
   }
