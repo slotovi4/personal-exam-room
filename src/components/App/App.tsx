@@ -11,6 +11,7 @@ import {
 } from '../../containers/authContainer';
 import { NotAuthLoginContainer } from '../../containers/notAuthContainer';
 import { AlertContainer } from '../../containers/alertContainer';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 class App extends React.Component {
   public render() {
@@ -31,6 +32,7 @@ class App extends React.Component {
               path="/login"
               component={NotAuthLoginContainer}
             />
+            <Route path="*" component={NotFoundPage} />
           </Switch>
         </Router>
       </Provider>
