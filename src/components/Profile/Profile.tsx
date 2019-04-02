@@ -19,7 +19,7 @@ class Profile extends React.Component<IProps> {
     const { profile } = this.props;
     const { firstName, lastName, sex, email, emailConfirmed, phone } = profile;
 
-    return Object.keys(profile).length ? (
+    return profile && Object.keys(profile).length ? (
       <section className={prof()}>
         <h3 className={prof('Title')}>Профиль</h3>
         <div className={prof('Content')}>

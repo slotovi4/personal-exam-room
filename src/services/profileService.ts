@@ -1,5 +1,5 @@
-import { API_URL } from '../actions/types';
 import axios from 'axios';
+import { API_URL } from '../actions/types';
 import { logout } from '../helpers/logout';
 import { authHeader } from '../helpers/authHeader';
 import { IProfile } from '../actions/interface';

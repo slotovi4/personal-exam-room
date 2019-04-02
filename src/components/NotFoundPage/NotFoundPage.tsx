@@ -5,6 +5,7 @@ import './NotFoundPage.scss';
 
 const NotFoundPage = () => {
   const notFound = cn('NotFoundPage');
+
   return (
     <section className={notFound()}>
       <span className={notFound('Title')}>

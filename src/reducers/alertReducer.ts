@@ -1,18 +1,14 @@
 import { alertTypes } from '../actions/types';
+import { IAlert } from '../actions/interface';
 
 interface IAction {
   type: 'ALERT' | 'ERROR';
   message?: string;
 }
 
-interface IState {
-  message: string;
-  messageType: 'error' | 'alert' | '';
-}
-
 const { ALERT, ERROR } = alertTypes;
 
-const initialState: IState = { message: '', messageType: '' };
+const initialState: IAlert = { message: '', messageType: '' };
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {

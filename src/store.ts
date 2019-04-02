@@ -1,6 +1,6 @@
-import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { USER_TOKEN, THEME_STYLE } from './actions/types';
 
 const stateToken = localStorage[USER_TOKEN];
