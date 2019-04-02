@@ -16,8 +16,7 @@ interface IProps {
 
 class Menu extends React.Component<IProps> {
   public componentWillMount() {
-    const { lastName, firstName, getUserProfile, theme } = this.props;
-    document.body.className = `${theme}-theme`;
+    const { lastName, firstName, getUserProfile } = this.props;
 
     if (!lastName && !firstName) {
       getUserProfile();

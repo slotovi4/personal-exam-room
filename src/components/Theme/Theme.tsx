@@ -10,7 +10,7 @@ interface IProps {
 
 class Theme extends React.Component<IProps> {
   public render() {
-    const { theme } = this.props;
+    const { theme, setThemeStyle } = this.props;
     const th = cn('Theme');
 
     return (
@@ -18,25 +18,15 @@ class Theme extends React.Component<IProps> {
         <span className={th('Title')}>Выбор темы</span>
         <div
           className={th('Color', { type: 'dark', current: theme === 'dark' })}
-          onClick={() => this.setColor('dark')}
+          onClick={() => setThemeStyle('dark')}
         />
         <div
           className={th('Color', { type: 'light', current: theme === 'light' })}
-          onClick={() => this.setColor('light')}
+          onClick={() => setThemeStyle('light')}
         />
       </section>
     );
   }
-
-  private setColor = (color: ITheme) => {
-    const body = document.querySelector('body');
-
-    if (body) {
-      body.className = `${color}-theme`;
-    }
-
-    this.props.setThemeStyle(color);
-  };
 }
 
 export default Theme;
