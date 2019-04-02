@@ -1,14 +1,14 @@
 import { profileTypes } from '../actions/types';
-import { IUser } from '../actions/interface';
+import { IProfile } from '../actions/interface';
 
-interface IAction {
-  type: 'GET_PROFILE';
-  profile?: IUser;
+export interface IAction {
+  type?: 'GET_PROFILE';
+  profile?: IProfile;
 }
 
-const { GET_PROFILE } = profileTypes;
+export const initialState: IProfile | {} = {};
 
-const initialState: IUser | {} = {};
+const { GET_PROFILE } = profileTypes;
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {
