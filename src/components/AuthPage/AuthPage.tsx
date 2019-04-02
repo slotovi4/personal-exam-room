@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import { cn } from '@bem-react/classname';
 import { ITheme } from '../../actions/interface';
+import { ConnectedComponentClass } from 'react-redux';
 import './AuthPage.scss';
 
 // components
@@ -12,7 +13,12 @@ interface IProps {
   theme: ITheme;
 }
 
-export default (ComposedComponent: any) =>
+export default (
+  ComposedComponent:
+    | ConnectedComponentClass<any, any>
+    | React.ClassicComponentClass
+    | React.FunctionComponent
+) =>
   class AuthPage extends React.Component<IProps> {
     public render() {
       const page = cn('AuthPage');
