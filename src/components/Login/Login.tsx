@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cn } from '@bem-react/classname';
 import { Form, Button } from 'react-bootstrap';
+import { SAVED_PASS } from '../../actions/types';
 import './Login.scss';
 
 interface IProps {
@@ -10,17 +11,19 @@ interface IProps {
 interface IState {
   phone: string;
   password: string;
+  savePass: boolean;
 }
 
 class Login extends React.Component<IProps, IState> {
   public state = {
     phone: '',
-    password: ''
+    password: localStorage[SAVED_PASS] || '',
+    savePass: false
   };
 
   public render() {
     const login = cn('Login');
-    const { phone, password } = this.state;
+    const { phone, password, savePass } = this.state;
 
     return (
       <article className={login()}>
@@ -73,7 +76,11 @@ class Login extends React.Component<IProps, IState> {
           </Form.Group>
 
           <div className={login('FieldContainer', { type: 'save' })}>
-            <Form.Check type="checkbox" label="Запомнить меня" />
+            <Form.Check
+              type="checkbox"
+              label="Запомнить меня"
+              onChange={() => this.setState({ savePass: !savePass })}
+            />
           </div>
         </Form>
 
@@ -88,8 +95,13 @@ class Login extends React.Component<IProps, IState> {
 
   private submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { phone, password } = this.state;
+    const { phone, password, savePass } = this.state;
     const { loginUser } = this.props;
+
+    if (savePass) {
+      localStorage.removeItem(SAVED_PASS);
+      localStorage.setItem(SAVED_PASS, password);
+    }
 
     this.setState({ password: '' });
 

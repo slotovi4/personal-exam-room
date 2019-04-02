@@ -1,6 +1,7 @@
 export const API_URL = 'https://api-applicant.spkfr.ru';
 export const USER_TOKEN = 'user-token';
 export const THEME_STYLE = 'theme-style';
+export const SAVED_PASS = 'saved-pass';
 
 export const loginTypes = {
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',
