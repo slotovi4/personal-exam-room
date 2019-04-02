@@ -6,13 +6,9 @@ interface IAction {
   exams?: IExams;
 }
 
-interface IState {
-  exams: IExams;
-}
-
 const { GET_EXAMS } = examsTypes;
 
-const initialState: IState | {} = {};
+const initialState: IExams | {} = {};
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {

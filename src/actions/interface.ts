@@ -40,4 +40,19 @@ export interface IAlert {
   messageType: 'error' | 'alert' | '';
 }
 
+export interface ILogin {
+  loggingIn: boolean;
+  token: string;
+}
+
 export type ITheme = 'light' | 'dark';
+
+export interface IGlobalState {
+  login: ILogin;
+  profile: IProfile;
+  exams: IExams;
+  alert: IAlert;
+  theme: {
+    theme: ITheme;
+  };
+}
