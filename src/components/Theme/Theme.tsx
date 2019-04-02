@@ -1,6 +1,12 @@
 import * as React from 'react';
+import { ITheme } from '../../actions/interface';
 
-class Theme extends React.Component {
+interface IProps {
+  theme: ITheme;
+  setThemeStyle: (theme: ITheme) => void;
+}
+
+class Theme extends React.Component<IProps> {
   public render() {
     return (
       <section>

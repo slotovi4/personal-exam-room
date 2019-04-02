@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import AuthPage from '../components/AuthPage/AuthPage';
-import Home from '../components/Home/Home';
 import { ProfileContainer } from '../containers/profileContainer';
 import { ExamsContainer } from '../containers/examsContainer';
+import AuthPage from '../components/AuthPage/AuthPage';
+import Home from '../components/Home/Home';
 
 export const AuthHomeContainer = connect((state: any) => ({
   loggingIn: state.login.loggingIn
