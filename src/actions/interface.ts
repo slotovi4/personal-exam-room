@@ -39,3 +39,7 @@ export interface IAlert {
   message: string;
   messageType: 'error' | 'alert' | '';
 }
+
+export interface ITheme {
+  theme: 'light' | 'dark';
+}

@@ -18,3 +18,7 @@ export const alertTypes = {
   ALERT: 'ALERT',
   ERROR: 'ERROR'
 };
+
+export const themeTypes = {
+  SET_THEME: 'SET_THEME'
+};
