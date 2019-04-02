@@ -1,5 +1,6 @@
 import { connect, ConnectedComponentClass } from 'react-redux';
 import { LoginContainer } from '../containers/loginContainer';
+import { IGlobalState } from '../actions/interface';
 import NotAuthPage from '../components/NotAuthPage/NotAuthPage';
 
 const NotAuthContainer = (
@@ -8,7 +9,7 @@ const NotAuthContainer = (
     | React.ClassicComponentClass
     | React.FunctionComponent
 ) =>
-  connect((state: any) => ({
+  connect((state: IGlobalState) => ({
     loggingIn: state.login.loggingIn
   }))(NotAuthPage(component));
 
