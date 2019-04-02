@@ -3,4 +3,23 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  &_theme_dark::before {
+    background-color: #343a40;
+  }
+
+  &_theme_light::before {
+    background-color: #f8f9fa;
+  }
 }
