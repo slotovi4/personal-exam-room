@@ -6,9 +6,9 @@ export interface IAction {
   exams?: IExams;
 }
 
-export const initialState: IExams | {} = {};
-
 const { GET_EXAMS } = examsTypes;
+
+export const initialState: IExams | {} = {};
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {

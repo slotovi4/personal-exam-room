@@ -6,9 +6,9 @@ export interface IAction {
   token?: string;
 }
 
-export const initialState: ILogin = { loggingIn: false, token: '' };
-
 const { LOGIN_SUCCESS, LOGOUT } = loginTypes;
+
+export const initialState: ILogin = { loggingIn: false, token: '' };
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {

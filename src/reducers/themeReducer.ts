@@ -1,8 +1,8 @@
 import { themeTypes } from '../actions/types';
 import { ITheme } from '../actions/interface';
 
-interface IAction {
-  type: 'SET_THEME';
+export interface IAction {
+  type?: 'SET_THEME';
   theme?: ITheme;
 }
 
@@ -12,7 +12,7 @@ interface IState {
 
 const { SET_THEME } = themeTypes;
 
-const initialState: IState = { theme: 'light' };
+export const initialState: IState = { theme: 'light' };
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {

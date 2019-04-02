@@ -6,9 +6,9 @@ export interface IAction {
   message?: string;
 }
 
-export const initialState: IAlert = { message: '', messageType: '' };
-
 const { ALERT, ERROR } = alertTypes;
+
+export const initialState: IAlert = { message: '', messageType: '' };
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {

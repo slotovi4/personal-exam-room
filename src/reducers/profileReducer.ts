@@ -6,9 +6,9 @@ export interface IAction {
   profile?: IProfile;
 }
 
-export const initialState: IProfile | {} = {};
-
 const { GET_PROFILE } = profileTypes;
+
+export const initialState: IProfile | {} = {};
 
 export default (state = initialState, action: IAction) => {
   switch (action.type) {
