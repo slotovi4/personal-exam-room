@@ -10,7 +10,8 @@ export const MenuContainer = compose(
   connect(
     (state: any) => ({
       firstName: state.profile.firstName,
-      lastName: state.profile.lastName
+      lastName: state.profile.lastName,
+      theme: state.theme.theme
     }),
     { getUserProfile, logoutUser }
   )
