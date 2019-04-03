@@ -5,17 +5,17 @@ import { cn } from '@bem-react/classname';
 import { getConvertedDate } from '../../helpers/getConvertedDate';
 import './Exams.scss';
 
-interface IProps {
+export interface IProps {
   exams: IExam[];
   getUserExams: () => void;
 }
 
 class Exams extends React.Component<IProps> {
   public componentWillMount() {
-    const { exams } = this.props;
+    const { exams, getUserExams } = this.props;
 
     if (!exams) {
-      this.props.getUserExams();
+      getUserExams();
     }
   }
 

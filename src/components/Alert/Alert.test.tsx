@@ -9,43 +9,47 @@ const alertData: IAlert = { messageType: 'alert', message: 'alert message' };
 describe('<Alert /> Component', () => {
   describe('On error', () => {
     it('Error message are showing', () => {
-      const alert = shallow(<Alert alert={errorData} />);
-      alert.setState({ show: true });
+      const wrapper = shallow(<Alert alert={errorData} />);
+      wrapper.setState({ show: true });
 
-      expect(alert.text()).toEqual('error message');
+      expect(wrapper.text()).toEqual('error message');
     });
 
     it('Error styles apply', () => {
-      const alert = shallow(<Alert alert={errorData} />);
-      alert.setState({ show: true });
+      const wrapper = shallow(<Alert alert={errorData} />);
+      wrapper.setState({ show: true });
 
-      expect(alert.find('article').hasClass('Alert_type_error')).toEqual(true);
+      expect(wrapper.find('article').hasClass('Alert_type_error')).toEqual(
+        true
+      );
     });
   });
 
   describe('On alert', () => {
     it('Alert message are showing', () => {
-      const alert = shallow(<Alert alert={alertData} />);
-      alert.setState({ show: true });
+      const wrapper = shallow(<Alert alert={alertData} />);
+      wrapper.setState({ show: true });
 
-      expect(alert.text()).toEqual('alert message');
+      expect(wrapper.text()).toEqual('alert message');
     });
 
     it('Alert styles apply', () => {
-      const alert = shallow(<Alert alert={alertData} />);
-      alert.setState({ show: true });
+      const wrapper = shallow(<Alert alert={alertData} />);
+      wrapper.setState({ show: true });
 
-      expect(alert.find('article').hasClass('Alert_type_alert')).toEqual(true);
+      expect(wrapper.find('article').hasClass('Alert_type_alert')).toEqual(
+        true
+      );
     });
   });
 
   describe('On click', () => {
     it('Component hided on click', () => {
-      const alert = shallow(<Alert alert={alertData} />);
-      alert.setState({ show: true });
-      alert.simulate('click');
+      const wrapper = shallow(<Alert alert={alertData} />);
+      wrapper.setState({ show: true });
+      wrapper.simulate('click');
 
-      expect(alert.find('article').exists()).toEqual(false);
+      expect(wrapper.find('article').exists()).toEqual(false);
     });
   });
 });
