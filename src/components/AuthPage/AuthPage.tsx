@@ -8,7 +8,7 @@ import './AuthPage.scss';
 // components
 import { MenuContainer } from '../../containers/menuContainer';
 
-interface IProps {
+export interface IProps {
   loggingIn: boolean;
   theme: ITheme;
 }
