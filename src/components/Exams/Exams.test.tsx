@@ -25,6 +25,14 @@ const props: IProps = {
 const wrapper = shallow(<Exams {...props} />);
 
 describe('<Exams /> Component', () => {
+  describe('Exams header', () => {
+    it('Exams title showed', () =>
+      expect(wrapper.find('.Exams-Title').exists()).toEqual(true));
+
+    it('Exams pre title showed', () =>
+      expect(wrapper.find('.Exams-Title_pre').exists()).toEqual(true));
+  });
+
   describe('Exams list', () => {
     it('Exams tr showed', () =>
       expect(wrapper.find('tbody tr').length).toBe(1));
@@ -57,11 +65,5 @@ describe('<Exams /> Component', () => {
       expect(wrapper.find('tbody tr th').get(4)).toEqual(
         <th>{exam.status}</th>
       ));
-
-    it('Exams title showed', () =>
-      expect(wrapper.find('.Exams-Title').exists()).toEqual(true));
-
-    it('Exams pre title showed', () =>
-      expect(wrapper.find('.Exams-Title_pre').exists()).toEqual(true));
   });
 });
