@@ -7,7 +7,7 @@ describe('Exams actions', () => {
       const res = getUserExams();
       res(store.dispatch);
 
-      expect(store.getState().exams).toBeDefined();
+      expect(store.getState().exams).toEqual({});
     });
   });
 });
