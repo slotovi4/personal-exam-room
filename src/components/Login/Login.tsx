@@ -35,7 +35,7 @@ class Login extends React.Component<IProps, IState> {
             в личный кабинет и запись на квалификационные экзамены
           </h5>
         </header>
-        <Form action="" onSubmit={this.submitForm}>
+        <Form className={login('Form')} action="" onSubmit={this.submitForm}>
           <Form.Group>
             <Form.Label>Мобильный телефон</Form.Label>
             <div className={login('FieldContainer', { type: 'phone' })}>
