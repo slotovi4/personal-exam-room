@@ -23,6 +23,6 @@ describe('Profile reducer', () => {
     expect(result).toEqual(profile);
   });
 
-  it('Defaults array for incorrect action', () =>
+  it('Defaults state for incorrect action', () =>
     expect(Profile(initialState, {})).toEqual(initialState));
 });

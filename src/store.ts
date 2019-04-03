@@ -1,12 +1,14 @@
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import { applyMiddleware, compose, createStore } from 'redux';
-import { USER_TOKEN, THEME_STYLE } from './actions/types';
+import { save } from './actions/types';
+
+const { USER_TOKEN, THEME_STYLE } = save;
 
 const stateToken = localStorage[USER_TOKEN];
 const stateTheme = localStorage[THEME_STYLE];
 
-const initialState = {
+export const initialState = {
   login: {
     loggingIn: stateToken ? true : false,
     token: stateToken || ''
@@ -22,9 +24,9 @@ const store = createStore(
   rootReducer,
   initialState,
   compose(
-    applyMiddleware(...middleware),
+    applyMiddleware(...middleware)
     // @ts-ignore
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
 

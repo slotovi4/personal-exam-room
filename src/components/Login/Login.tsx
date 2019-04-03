@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { cn } from '@bem-react/classname';
 import { Form, Button } from 'react-bootstrap';
-import { SAVED_PASS } from '../../actions/types';
+import { save } from '../../actions/types';
 import './Login.scss';
+
+const { SAVED_PASS } = save;
 
 interface IProps {
   loginUser: (phone: string, password: string) => void;

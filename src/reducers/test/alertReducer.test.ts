@@ -28,6 +28,6 @@ describe('Alert reducer', () => {
     });
   });
 
-  it('Defaults array for incorrect action', () =>
+  it('Defaults state for incorrect action', () =>
     expect(Alert(initialState, {})).toEqual(initialState));
 });
