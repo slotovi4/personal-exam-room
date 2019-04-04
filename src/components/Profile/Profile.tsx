@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap';
 import './Profile.scss';
 
-interface IProps {
+export interface IProps {
   profile: IProfile;
 }
 
