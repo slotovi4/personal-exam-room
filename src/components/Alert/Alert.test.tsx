@@ -52,4 +52,13 @@ describe('<Alert /> Component', () => {
       expect(wrapper.find('article').exists()).toEqual(false);
     });
   });
+
+  describe('Check props', () => {
+    it('Component showed when message not empty', () => {
+      const wrapper = shallow(<Alert alert={alertData} />);
+      wrapper.setProps({ message: '123' });
+
+      expect(wrapper.state('show')).toEqual(true);
+    });
+  });
 });
