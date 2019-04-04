@@ -3,7 +3,7 @@ import { ITheme } from '../../actions/interface';
 import { cn } from '@bem-react/classname';
 import './Theme.scss';
 
-interface IProps {
+export interface IProps {
   theme: ITheme;
   setThemeStyle: (theme: ITheme) => void;
 }
