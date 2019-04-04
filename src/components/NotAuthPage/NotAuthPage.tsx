@@ -4,7 +4,7 @@ import { cn } from '@bem-react/classname';
 import { ConnectedComponentClass } from 'react-redux';
 import './NotAuthPage.scss';
 
-interface IProps {
+export interface IProps {
   loggingIn: boolean;
 }
 
