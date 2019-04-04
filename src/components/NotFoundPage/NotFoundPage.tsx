@@ -9,7 +9,10 @@ const NotFoundPage = () => {
   return (
     <section className={notFound()}>
       <span className={notFound('Title')}>
-        Page not found! Go <Link to="/"> Home</Link>{' '}
+        Page not found! Go{' '}
+        <Link type="link" to="/">
+          Home
+        </Link>
       </span>
     </section>
   );
