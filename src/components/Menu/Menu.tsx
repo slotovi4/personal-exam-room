@@ -5,7 +5,7 @@ import { Navbar, Button } from 'react-bootstrap';
 import { ITheme } from '../../actions/interface';
 import './Menu.scss';
 
-interface IProps {
+export interface IProps {
   firstName: string;
   lastName: string;
   location: Location;
@@ -60,7 +60,9 @@ class Menu extends React.Component<IProps> {
           >
             Расписание экзаменов
           </Link>
-          <Button onClick={logoutUser}>Выйти</Button>
+          <Button type="button" onClick={logoutUser}>
+            Выйти
+          </Button>
         </Navbar>
       </section>
     );
