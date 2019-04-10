@@ -10,7 +10,7 @@ const stateTheme = localStorage[THEME_STYLE];
 
 export const initialState = {
   login: {
-    loggingIn: stateToken ? true : false,
+    loggingIn: !!stateToken,
     token: stateToken || ''
   },
   theme: {
