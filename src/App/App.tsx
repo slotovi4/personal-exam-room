@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../../store';
+import store from '../store';
 
 // components
 import {
   AuthHomeContainer,
   AuthProfileContainer,
   AuthExamsContainer
-} from '../../containers/authContainer';
-import { NotAuthLoginContainer } from '../../containers/notAuthContainer';
-import { AlertContainer } from '../../containers/alertContainer';
-import NotFoundPage from '../NotFoundPage/NotFoundPage';
+} from '../containers/authContainer';
+import { NotAuthLoginContainer } from '../containers/notAuthContainer';
+import { AlertContainer } from '../containers/alertContainer';
+import NotFoundPage from '../components/NotFoundPage/NotFoundPage';
 
 class App extends React.Component {
   public render() {
