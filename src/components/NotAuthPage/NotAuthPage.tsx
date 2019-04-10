@@ -12,7 +12,8 @@ export default (
   ComposedComponent:
     | ConnectedComponentClass<any, any>
     | React.ClassicComponentClass
-    | React.FunctionComponent
+    | React.FunctionComponent,
+  to: string
 ) =>
   class NotAuthPage extends React.Component<IProps> {
     public render() {
@@ -23,7 +24,7 @@ export default (
           <ComposedComponent {...this.props} />
         </section>
       ) : (
-        <Redirect to={'/'} />
+        <Redirect to={to} />
       );
     }
   };

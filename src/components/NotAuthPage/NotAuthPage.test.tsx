@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import NotAuthPage, { IProps } from './NotAuthPage';
 
 const ComposedComponent = () => <span>123</span>;
-const ConditionalComponent = NotAuthPage(ComposedComponent);
+const ConditionalComponent = NotAuthPage(ComposedComponent, '/');
 
 describe('<NotAuthPage /> Root Component', () => {
   describe('On user is authorized', () => {

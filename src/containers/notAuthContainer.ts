@@ -11,6 +11,6 @@ const NotAuthContainer = (
 ) =>
   connect((state: IGlobalState) => ({
     loggingIn: state.login.loggingIn
-  }))(NotAuthPage(component));
+  }))(NotAuthPage(component, '/'));
 
 export const NotAuthLoginContainer = NotAuthContainer(LoginContainer);
