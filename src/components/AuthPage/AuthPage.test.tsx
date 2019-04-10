@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import AuthPage, { IProps } from './AuthPage';
 
 const ComposedComponent = () => <span>123</span>;
-const ConditionalComponent = AuthPage(ComposedComponent);
+const ConditionalComponent = AuthPage(ComposedComponent, '/login');
 
 describe('<AuthPage /> Root Component', () => {
   describe('On user is authorized', () => {

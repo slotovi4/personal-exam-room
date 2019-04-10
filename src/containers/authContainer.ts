@@ -14,7 +14,7 @@ const AuthContainer = (
   connect((state: IGlobalState) => ({
     loggingIn: state.login.loggingIn,
     theme: state.theme.theme
-  }))(AuthPage(component));
+  }))(AuthPage(component, '/login'));
 
 export const AuthHomeContainer = AuthContainer(Home);
 export const AuthProfileContainer = AuthContainer(ProfileContainer);
